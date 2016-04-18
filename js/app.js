@@ -1,5 +1,5 @@
 var socket = io();
-var positionChange = 0.5;
+var positionChange = 1;
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
