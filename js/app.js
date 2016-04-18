@@ -3,6 +3,7 @@ var positionChange = 0.5;
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
+var screenWith = $(window).width() - 200;
 $(document).ready(function () {
     getValues();
 });
@@ -31,8 +32,9 @@ function getValues(){
 }
 
 function changePosition(){
-    var shipPos= $(".ship").get(0).style.left;
-    console.log(shipPos);
+    var shipPos= $(".ship").position().left;
+    var percentage = (shipPos / screenWith) * 100;
+    console.log(percentage);
     if(shipPos != 0 && shipPos !=100){
         if(isLeft){
             $(".ship").css("left",shipPos + positionChange +"%");
