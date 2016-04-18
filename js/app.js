@@ -54,3 +54,5 @@ function changePosition(){
     window.requestAnimationFrame(changePosition);
 }
 window.requestAnimationFrame(changePosition);
+
+// Commentaar
