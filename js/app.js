@@ -31,14 +31,14 @@ function getValues(){
 }
 
 function changePosition(){
-    var shipPos= $(".ship").position().left;
+    var shipPos= $(".ship").css("left");
     console.log(shipPos);
     if(shipPos != 0 && shipPos !=100){
         if(isLeft){
-            $(".ship").style.left = shipPos + positionChange +"%";
+            $(".ship").css("left",shipPos + positionChange +"%");
         }
         if(isRight){
-            $(".ship").style.left = shipPos - positionChange +"%";
+            $(".ship").css("left", shipPos - positionChange +"%");
         }
     }
 
