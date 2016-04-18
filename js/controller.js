@@ -9,6 +9,7 @@ $(document).ready(function(){
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
+var marge = 10;
 function motion(){
     var orientation = window.screen.orientation;
     if(orientation.type == "landscape-primary"){
@@ -18,7 +19,7 @@ function motion(){
             });
             window.addEventListener("deviceorientation", function (eventdata) {
                 var tiltLR = Math.round(eventdata.beta)%180;
-                if(tiltLR >5){
+                if(tiltLR >marge){
                     //Rechts
                     if(!isRight){
                         socket.emit("startRightTilt",true);
@@ -27,7 +28,7 @@ function motion(){
                         isStop = false;
                     }
                 }
-                if(tiltLR <-5){
+                if(tiltLR <-marge){
                     //Links
                     if(!isLeft){
                         socket.emit("startLeftTilt",true);
@@ -36,7 +37,7 @@ function motion(){
                         isStop = false;
                     }
                 }
-                if(tiltLR>-5 &&tiltLR<5){
+                if(tiltLR>-marge &&tiltLR<marge){
                     if(!isStop){
                         socket.emit("stopTilt",true);
                         isStop = true;
