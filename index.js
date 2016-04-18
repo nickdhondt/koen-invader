@@ -13,7 +13,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/controller", function(req, res) {
-    res.sendFile(__dirname, "/controller.html");
+    res.sendFile(__dirname + "/controller.html");
 });
 
 io.on("connection", function(socket){
