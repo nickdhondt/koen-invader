@@ -31,7 +31,7 @@ function getValues(){
 }
 
 function changePosition(){
-    var shipPos= $(".ship").css("left");
+    var shipPos= $(".ship").get(0).style.left;
     console.log(shipPos);
     if(shipPos != 0 && shipPos !=100){
         if(isLeft){
