@@ -35,14 +35,21 @@ function changePosition(){
     var shipPos= $(".ship").position().left;
     var percentage = (shipPos / screenWith) * 100;
     console.log(percentage);
-    if(shipPos != 0 && shipPos !=100){
         if(isLeft){
-            $(".ship").css("left",shipPos + positionChange +"%");
+            var newpercentageL = percentage - positionChange;
+            if(newpercentageL<0){
+                newpercentageL = 0;
+            }
+            $(".ship").css("left",newpercentageL +"%");
         }
         if(isRight){
-            $(".ship").css("left", shipPos - positionChange +"%");
+            var newpercentageR = percentage + positionChange;
+            if(newpercentageR >100){
+                newpercentageR = 100;
+            }
+            $(".ship").css("left", newpercentageR +"%");
         }
-    }
+
 
     window.requestAnimationFrame(changePosition);
 }
