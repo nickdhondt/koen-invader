@@ -54,6 +54,11 @@ function changePosition(){
     window.requestAnimationFrame(changePosition);
 }
 window.requestAnimationFrame(changePosition);
+<<<<<<< HEAD
 function makeBullet(){
     $(".info_overlay").append("<div>bullet :)</div>")
 }
+=======
+
+// Commentaar
+>>>>>>> origin/master
