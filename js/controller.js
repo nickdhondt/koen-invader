@@ -1,4 +1,6 @@
+var socket = io();
 $(document).ready(function(){
+
     window.screen.orientation.lock('landscape-primary');
     window.screen.orientation.addEventListener("change",function(){
         motion();
