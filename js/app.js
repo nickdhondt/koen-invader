@@ -78,7 +78,7 @@ function frame(timestamp){
         $.each(projectilesList, function(key, projectile) {
             var jProjectile = $(projectile);
 
-            jProjectile.css("top", jProjectile.offset().top + 50 / delta);
+            jProjectile.css("top", jProjectile.offset().top + 80 / delta);
 
             if (jProjectile.offset().top > screenHeight) {
                 jProjectile.remove();

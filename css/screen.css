@@ -29,6 +29,13 @@ section:first-of-type > div {
     flex-wrap: wrap;
 }
 
+.koens > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .info_overlay, .projectiles {
     position: absolute;
     top: 0;
