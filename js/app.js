@@ -6,6 +6,7 @@ var isStop =false ;
 var screenWith = $(window).width() - 200;
 $(document).ready(function () {
     getValues();
+    spawnKoens();
 });
 function getValues(){
     socket.on("clickButton",function(){
@@ -32,33 +33,36 @@ function getValues(){
 }
 
 function changePosition(){
-    var shipPos= $(".ship").position().left;
+    var ship = $(".ship");
+    var shipPos= ship.position().left;
     var percentage = (shipPos / screenWith) * 100;
-    console.log(percentage);
         if(isLeft){
             var newpercentageL = percentage - positionChange;
             if(newpercentageL<0){
                 newpercentageL = 0;
             }
-            $(".ship").css("left",newpercentageL +"%");
+            ship.css("left",newpercentageL +"%");
         }
         if(isRight){
             var newpercentageR = percentage + positionChange;
             if(newpercentageR >100){
                 newpercentageR = 100;
             }
-            $(".ship").css("left", newpercentageR +"%");
+            ship.css("left", newpercentageR +"%");
         }
 
 
     window.requestAnimationFrame(changePosition);
 }
 window.requestAnimationFrame(changePosition);
-<<<<<<< HEAD
+
 function makeBullet(){
     $(".info_overlay").append("<div>bullet :)</div>")
 }
-=======
 
-// Commentaar
->>>>>>> origin/master
+function spawnKoens() {
+    var koens = $(".koens");
+    for(var i = 0; i < 36; i++) {
+        koens.append("<div class='koen'></div>");
+    }
+}

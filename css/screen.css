@@ -11,8 +11,20 @@ body {
     height: 200px;
 }
 
-.koens {
+section:first-of-type {
     height: calc(100vh - 200px);
+}
+
+section:first-of-type > div {
+    width: 80%;
+    margin: auto;
+}
+
+.koens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .info_overlay {
@@ -35,4 +47,11 @@ body {
     padding: 50px 0;
     position: relative;
     width: calc(100vw - 200px)
+}
+
+.koen {
+    width: 60px;
+    height: 100px;
+    background: darkolivegreen;
+    margin: 30px 25px;
 }
