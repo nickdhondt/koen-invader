@@ -8,11 +8,17 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="js/app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <section>
     <div>
-        <div class="koens"></div>
+        <div class="koens">
+            <div id="first"></div>
+            <div id="second"></div>
+            <div id="third"></div>
+            <div id="fourth"></div>
+        </div>
     </div>
 </section>
 <section class="ship_bar">
@@ -20,8 +26,15 @@
         <div class="ship"></div>
     </div>
 </section>
+<section class="projectiles"></section>
 <section class="info_overlay">
-
+    <div id="lives">3</div>
+    <div id="over">
+        <div>
+            <div>Game Over</div>
+            <div id="restart">Restart</div>
+        </div>
+    </div>
 </section>
 </body>
 </html>
