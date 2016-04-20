@@ -15,10 +15,7 @@ $(document).ready(function () {
     $("#restart").click(function(){
         $("#over").hide();
         $(".projectiles").empty();
-        $("#first").empty();
-        $("#second").empty();
-        $("#third").empty();
-        $("#fourth").empty();
+        $(".koens").empty();
         $("#lives").text("3");
         koensList = [];
         projectilesList = [];
@@ -114,23 +111,10 @@ function makeBullet(){
 }
 
 function spawnKoens() {
+    var koens = $(".koens");
     for(var i = 0; i < 36; i++) {
         var koen = $("<div class='koen'></div>");
-        var row = Math.ceil((i + 1) / 9);
-        switch (row) {
-            case 1:
-                $("#first").append(koen);
-                break;
-            case 2:
-                $("#second").append(koen);
-                break;
-            case 3:
-                $("#third").append(koen);
-                break;
-            case 4:
-                $("#fourth").append(koen);
-                break;
-        }
+        koens.append(koen);
         koensList.push(koen[0]);
     }
 }
@@ -163,4 +147,13 @@ function collision($div1, $div2) {
 
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
     return true;
+}
+
+// Een koen moet meegegeven worden als jQuery node
+// Niet als gewonen js node
+// Een gewone node converteer je zo:
+// var jQueryNode = $(javaScriptNode);
+function removeKoen(koen) {
+    koen.css("visibility", "hidden");
+    koensList.splice($.inArray(koen, koensList), 1);
 }
