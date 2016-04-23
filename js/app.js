@@ -107,7 +107,7 @@ function frame(timestamp){
 window.requestAnimationFrame(frame);
 
 function makeBullet(){
-    $(".info_overlay").append("<div>bullet :)</div>")
+    $(".info_overlay").append("<div class='bullet'></div>");
 }
 
 function spawnKoens() {
