@@ -2,10 +2,12 @@ var socket = io();
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
+var shoot = false;
 var screenWith = $(window).width() - 200;
 var screenHeight = $(window).height();
 var koensList = [];
 var projectilesList = [];
+var bulletlist = [];
 var paused = false;
 var start = null;
 
@@ -26,6 +28,7 @@ $(document).ready(function () {
 function getValues(){
     socket.on("clickButton",function(){
         //schiet
+        shoot = true;
     });
     socket.on("startRightTilt",function(){
        // Ga naar rechts
@@ -71,7 +74,34 @@ function frame(timestamp){
                 }
                 ship.css("left", newpercentageR +"%");
             }
+        if(shoot){
+            shoot = false;
+            makeBullet();
+            console.log("shoot");
+        }
+        $.each(bulletlist, function (key,bullet) {
+            var jbullet = $(bullet);
+            jbullet.css("top", jbullet.offset().top - 0.2 * delta);
 
+            if(jbullet.offset().top<0){
+                jbullet.remove();
+            }
+            var shot = false;
+            $.each(koensList, function(key,koen){
+                var jKoen = $(koen);
+                var kwidth = 60;
+                if(!shot){
+                    if(jbullet.offset().left<jKoen.offset().left+kwidth
+                        && jbullet.offset().left + 20 >jKoen.offset().left
+                        &&jbullet.offset().top<jKoen.offset().top + 100
+                        && jbullet.offset().top + 50 > jKoen.offset().top){
+                        removeKoen(jKoen);
+                        jbullet.remove();
+                        shot = true;
+                    }
+                }
+            });
+        });
         $.each(projectilesList, function(key, projectile) {
             var jProjectile = $(projectile);
 
@@ -96,9 +126,9 @@ function frame(timestamp){
         });
 
         $.each(koensList, function(key, koen) {
-            if (Math.random() < 0.001) {
-                spawnEnemyProjectile(koen);
-            }
+            //if (Math.random() < 0.001) {
+            //    spawnEnemyProjectile(koen);
+            //}
         });
     }
 
@@ -107,7 +137,15 @@ function frame(timestamp){
 window.requestAnimationFrame(frame);
 
 function makeBullet(){
-    $(".info_overlay").append("<div class='bullet'></div>");
+    var schip = $(".ship");
+    var y = schip.offset().top - 60;
+    var x = schip.offset().left + 100;
+
+    var bullet = $("<div class='bullet'></div>");
+    bullet.css("top",y).css("left",x);
+    $(".projectiles").append(bullet);
+
+    bulletlist.push(bullet[0]);
 }
 
 function spawnKoens() {
@@ -156,4 +194,5 @@ function collision($div1, $div2) {
 function removeKoen(koen) {
     koen.css("visibility", "hidden");
     koensList.splice($.inArray(koen, koensList), 1);
+
 }

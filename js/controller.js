@@ -9,7 +9,7 @@ $(document).ready(function(){
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
-var marge = 25;
+var marge = 16;
 function motion(){
     var orientation = window.screen.orientation;
     if(orientation.type == "landscape-primary"){

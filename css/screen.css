@@ -58,7 +58,7 @@ section:first-of-type > div {
     margin: 30px 25px;
 }
 
-.projectile {
+.projectile, .bullet {
     width: 20px;
     height: 50px;
     background: #000;
