@@ -4,12 +4,27 @@ $(document).ready(function(){
     window.screen.orientation.lock('landscape-primary');
     window.screen.orientation.addEventListener("change",function(){
         motion();
+        getValue();
+        setInterval(vibrate(),1000);
     });
 });
 var isLeft =false ;
 var isRight=false ;
 var isStop =false ;
 var marge = 16;
+var isShot = false;
+function getValue(){
+    socket.on("isShot",function(){
+        //schiet
+        isShot = true;
+    });
+}
+function vibrate(){
+    if(isShot){
+        window.navigator.vibrate(300);
+        isShot = false;
+    }
+}
 function motion(){
     var orientation = window.screen.orientation;
     if(orientation.type == "landscape-primary"){

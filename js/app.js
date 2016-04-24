@@ -115,7 +115,7 @@ function frame(timestamp){
 
             if (collision(ship, jProjectile)) {
                 jProjectile.remove();
-
+                socket.emit("isShot",true);
                 lives.text(lives.text() - 1);
 
                 if (lives.text() <= 0) {
@@ -126,9 +126,9 @@ function frame(timestamp){
         });
 
         $.each(koensList, function(key, koen) {
-            //if (Math.random() < 0.001) {
-            //    spawnEnemyProjectile(koen);
-            //}
+            if (Math.random() < 0.001) {
+                spawnEnemyProjectile(koen);
+            }
         });
     }
 

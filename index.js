@@ -37,6 +37,10 @@ io.on("connection", function(socket){
         socket.broadcast.emit("stopTilt", true);
         console.log("stopTilt");
     });
+    socket.on("isShot", function(e){
+        socket.broadcast.emit("isShot", true);
+        console.log("isShot");
+    });
 });
 
 server.listen(5555, function(){
