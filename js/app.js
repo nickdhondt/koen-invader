@@ -95,7 +95,7 @@ function frame(timestamp){
                         && jbullet.offset().left + 20 >jKoen.offset().left
                         &&jbullet.offset().top<jKoen.offset().top + 100
                         && jbullet.offset().top + 50 > jKoen.offset().top){
-                        removeKoen(jKoen);
+                        removeKoen(koen);
                         jbullet.remove();
                         shot = true;
                     }
@@ -150,7 +150,9 @@ function makeBullet(){
 
 function spawnKoens() {
     var koens = $(".koens");
-    for(var i = 0; i < 36; i++) {
+    var koensDivWidth = $("body > section > div").width();
+    console.log(Math.floor(koensDivWidth / 110) * 4);
+    for(var i = 0; i < Math.floor(koensDivWidth / 110) * 4; i++) {
         var koen = $("<div class='koen'></div>");
         koens.append(koen);
         koensList.push(koen[0]);
@@ -192,7 +194,6 @@ function collision($div1, $div2) {
 // Een gewone node converteer je zo:
 // var jQueryNode = $(javaScriptNode);
 function removeKoen(koen) {
-    koen.css("visibility", "hidden");
+    $(koen).css("visibility", "hidden");
     koensList.splice($.inArray(koen, koensList), 1);
-
 }
