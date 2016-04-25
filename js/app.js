@@ -136,7 +136,7 @@ function frame(timestamp){
 
         $.each(koensList, function(key, koen) {
             if (Math.random() < 0.001) {
-                //spawnEnemyProjectile(koen);
+                spawnEnemyProjectile(koen);
             }
         });
     }
