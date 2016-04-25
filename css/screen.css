@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url("../img/bg.jpg");
+    background: #000;
     overflow: hidden;
     font-family: "Press Start 2P", sans-serif;
 }
@@ -40,7 +40,7 @@ section:first-of-type > div {
 .ship {
     width: 200px;
     height: 100px;
-    background: #000080;
+    background: #1ec919;
     position: relative;
     left: 50%;
 }
@@ -54,30 +54,32 @@ section:first-of-type > div {
 .koen {
     width: 60px;
     height: 100px;
-    background: darkolivegreen;
+    background: #fff;
     margin: 30px 25px;
 }
 
 .projectile, .bullet {
     width: 20px;
     height: 50px;
-    background: #000;
+    background: #bcbcbc;
     position: absolute;
 }
 
 #lives {
+    color: #fff;
     font-size: 3em;
     padding: .25em;
 }
 
 #over, #won {
+    color: #000;
     display: none;
     font-size: 4em;
     position: absolute;
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255,255,255,.4);
+    background: rgba(255,255,255,.6);
 }
 
 #over > div, #won > div {
