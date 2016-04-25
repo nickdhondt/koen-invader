@@ -14,8 +14,10 @@ var start = null;
 $(document).ready(function () {
     getValues();
     spawnKoens();
-    $("#restart").click(function(){
+    window.requestAnimationFrame(frame);
+    $(".restart").click(function(){
         $("#over").hide();
+        $("#won").hide();
         $(".projectiles").empty();
         $(".koens").empty();
         $("#lives").text("3");
@@ -102,6 +104,12 @@ function frame(timestamp){
                 }
             });
         });
+
+        if (koensList.length <= 0) {
+            $("#won").show();
+            paused = true;
+        }
+
         $.each(projectilesList, function(key, projectile) {
             var jProjectile = $(projectile);
 
@@ -134,7 +142,6 @@ function frame(timestamp){
 
     window.requestAnimationFrame(frame);
 }
-window.requestAnimationFrame(frame);
 
 function makeBullet(){
     var schip = $(".ship");

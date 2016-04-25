@@ -20,26 +20,21 @@ app.get("/controller", function(req, res) {
 io.on("connection", function(socket){
     socket.on("clickButton", function(e){
         socket.broadcast.emit("clickButton", true);
-        console.log("clickButton");
     });
 
     socket.on("startLeftTilt", function(e){
         socket.broadcast.emit("startLeftTilt", true);
-        console.log("startLeftTilt");
     });
 
     socket.on("startRightTilt", function(e){
         socket.broadcast.emit("startRightTilt", true);
-        console.log("startRightTilt");
     });
 
     socket.on("stopTilt", function(e){
         socket.broadcast.emit("stopTilt", true);
-        console.log("stopTilt");
     });
     socket.on("isShot", function(e){
         socket.broadcast.emit("isShot", true);
-        console.log("isShot");
     });
 });
 
