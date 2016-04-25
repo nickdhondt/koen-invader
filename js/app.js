@@ -14,8 +14,9 @@ var start = null;
 $(document).ready(function () {
     getValues();
     spawnKoens();
-    $("#restart").click(function(){
+    $(".restart").click(function(){
         $("#over").hide();
+        $("#won").hide();
         $(".projectiles").empty();
         $(".koens").empty();
         $("#lives").text("3");
@@ -65,7 +66,7 @@ function frame(timestamp){
                 if(newpercentage<0){
                     newpercentage = 0;
                 }
-                ship.css("left",newpercentage +"%");
+                ship.css("left", newpercentage +"%");
             }
             if(isRight){
                 var newpercentageR = percentage + (positionChange / delta);
@@ -102,6 +103,12 @@ function frame(timestamp){
                 }
             });
         });
+
+        if (koensList.length <= 0) {
+            paused = true;
+            $("#won").show();
+        }
+
         $.each(projectilesList, function(key, projectile) {
             var jProjectile = $(projectile);
 

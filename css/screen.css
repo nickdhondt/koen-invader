@@ -70,7 +70,7 @@ section:first-of-type > div {
     padding: .25em;
 }
 
-#over {
+#over, #won {
     display: none;
     font-size: 4em;
     position: absolute;
@@ -80,7 +80,7 @@ section:first-of-type > div {
     background: rgba(255,255,255,.4);
 }
 
-#over > div {
+#over > div, #won > div {
     height: 100%;
     width: 100%;
     display: flex;
@@ -90,7 +90,7 @@ section:first-of-type > div {
     flex-direction: column;
 }
 
-#restart {
+.restart {
     margin-top: 1em;
     font-size: .5em;
     cursor: pointer;
