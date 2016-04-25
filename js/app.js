@@ -83,9 +83,10 @@ function frame(timestamp){
         }
         $.each(bulletlist, function (key,bullet) {
             var jbullet = $(bullet);
+
             jbullet.css("top", jbullet.offset().top - 0.2 * delta);
 
-            if(jbullet.offset().top<0){
+            if(jbullet.offset().top < 0 - 50){
                 jbullet.remove();
             }
             var shot = false;
@@ -135,7 +136,7 @@ function frame(timestamp){
 
         $.each(koensList, function(key, koen) {
             if (Math.random() < 0.001) {
-                spawnEnemyProjectile(koen);
+                //spawnEnemyProjectile(koen);
             }
         });
     }
